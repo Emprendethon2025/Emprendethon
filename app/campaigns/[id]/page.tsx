@@ -27,7 +27,7 @@ export default async function CampaignDetailPage({
     goal: 25000,
     backers: 128,
     daysLeft: 15,
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/img/campana/Reforestación Amazónica.jpeg",
     verified: true,
     category: "Medio Ambiente",
     location: "Amazonía, Brasil",

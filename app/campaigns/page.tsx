@@ -16,7 +16,7 @@ export default function CampaignsPage() {
       goal: 25000,
       backers: 128,
       daysLeft: 15,
-      image: "/placeholder.svg?height=200&width=400",
+      image: "/img/campana/Reforestación Amazónica.jpeg",
     },
     {
       id: "2",
@@ -27,7 +27,7 @@ export default function CampaignsPage() {
       goal: 20000,
       backers: 74,
       daysLeft: 21,
-      image: "/placeholder.svg?height=200&width=400",
+      image: "/img/campana/Energía Solar para Comunidades.jpg",
     },
     {
       id: "3",
@@ -38,7 +38,7 @@ export default function CampaignsPage() {
       goal: 15000,
       backers: 95,
       daysLeft: 7,
-      image: "/placeholder.svg?height=200&width=400",
+      image: "/img/campana/Educación Digital Inclusiva.jpg",
     },
     {
       id: "4",
@@ -49,7 +49,7 @@ export default function CampaignsPage() {
       goal: 12000,
       backers: 42,
       daysLeft: 30,
-      image: "/placeholder.svg?height=200&width=400",
+      image: "/img/campana/Agua Potable para Todos.jpg",
     },
     {
       id: "5",
@@ -60,7 +60,7 @@ export default function CampaignsPage() {
       goal: 10000,
       backers: 63,
       daysLeft: 12,
-      image: "/placeholder.svg?height=200&width=400",
+      image: "/img/campana/Emprendimiento Juvenil.jpg",
     },
     {
       id: "6",
@@ -71,7 +71,7 @@ export default function CampaignsPage() {
       goal: 30000,
       backers: 152,
       daysLeft: 25,
-      image: "/placeholder.svg?height=200&width=400",
+      image: "/img/campana/Conservación Marina.jpg",
     },
   ]
 

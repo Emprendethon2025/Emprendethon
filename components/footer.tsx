@@ -10,8 +10,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold gradient-text">TrustFund</span>
-              <span className="font-bold">DAO</span>
+              <span className="text-2xl font-bold gradient-text">TrustBlock</span>
+              {/* <span className="font-bold">DAO</span> */}
             </Link>
             <p className="mt-4 text-gray-400">
               Plataforma de crowdfunding Web3 con identidad digital verificada en blockchain.
@@ -117,7 +117,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} TrustFund DAO. Todos los derechos reservados.
+            © {new Date().getFullYear()} TrustBlock . Todos los derechos reservados.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-sm text-gray-500 hover:text-skyblue transition-colors">

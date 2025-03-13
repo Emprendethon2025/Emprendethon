@@ -31,13 +31,14 @@ export function HeroSection() {
           </div>
           <div className="flex-1 w-full max-w-md animate-slide-up">
             <div className="bg-darkblue/40 backdrop-blur-sm p-6 rounded-xl border border-skyblue/20 shadow-lg hover-glow">
-              <div className="aspect-video bg-gradient-to-br from-skyblue/20 to-neonpink/20 rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="aspect-video bg-gradient-to-br from-skyblue/20 to-neonpink/20 rounded-lg flex items-center justify-center overflow-hidden relative">
                 <Image
-                  src="/placeholder.svg?height=300&width=500"
+                  src="/img/herosection.png"
                   alt="TrustFund DAO Platform"
-                  width={500}
-                  height={300}
-                  className="w-full h-auto rounded-lg transition-transform duration-700 hover:scale-105"
+                  fill
+          
+                  className="rounded-lg transition-transform duration-700 hover:scale-105"
+                  priority
                 />
               </div>
               <div className="mt-6 space-y-4">

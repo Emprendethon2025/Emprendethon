@@ -16,7 +16,7 @@ const mockRewards = [
   {
     id: "2",
     title: "Acceso VIP",
-    description: "Acceso a eventos exclusivos y actualizaciones prioritarias",
+    description: "Acceso a eventos exclusivos y beneficios especiales",
     amount: 500,
     isAvailable: true,
     claimedCount: 2,

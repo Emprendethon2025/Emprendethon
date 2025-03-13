@@ -25,8 +25,8 @@ export function Navbar() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center space-x-2 transition-opacity hover:opacity-80">
-            <span className="text-2xl font-bold gradient-text">TrustFund</span>
-            <span className="font-bold text-foreground">DAO</span>
+            <span className="text-2xl font-bold gradient-text">TrustBlock</span>
+            {/* <span className="font-bold text-foreground">DAO</span> */}
           </Link>
 
           <NavigationMenu className="hidden md:flex">
@@ -46,7 +46,7 @@ export function Navbar() {
                           className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-skyblue/20 to-neonpink/80 p-6 no-underline outline-none focus:shadow-md"
                           href="/"
                         >
-                          <div className="mt-4 mb-2 text-lg font-medium text-white">TrustFund DAO</div>
+                          <div className="mt-4 mb-2 text-lg font-medium text-white">TrustBlock</div>
                           <p className="text-sm leading-tight text-white/90">
                             Crowdfunding con identidad verificada en blockchain
                           </p>
@@ -114,8 +114,8 @@ export function Navbar() {
             <SheetContent side="right" className="border-l border-border/40 backdrop-blur-md bg-background/95">
               <div className="grid gap-6 py-6">
                 <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
-                  <span className="text-2xl font-bold gradient-text">TrustFund</span>
-                  <span className="font-bold">DAO</span>
+                  <span className="text-2xl font-bold gradient-text">TrustBlock</span>
+                  {/* <span className="font-bold">DAO</span> */}
                 </Link>
                 <div className="grid gap-4">
                   <Link

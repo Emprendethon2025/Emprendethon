@@ -4,9 +4,9 @@ export default function AboutPage() {
   return (
     <main className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6">Acerca de TrustFund DAO</h1>
+        <h1 className="text-4xl font-bold mb-6">Acerca de TrustBlock</h1>
         <p className="text-muted-foreground mb-8">
-          TrustFund DAO es una plataforma revolucionaria que combina la transparencia de la tecnología blockchain
+            TrustBlock es una plataforma revolucionaria que combina la transparencia de la tecnología blockchain
           con el poder del crowdfunding para impulsar proyectos sociales y ambientales.
         </p>
 

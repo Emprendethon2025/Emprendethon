@@ -8,7 +8,7 @@ import { Footer } from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "TrustFund DAO - Crowdfunding con Blockchain",
+  title: "TrustBlock - Crowdfunding con Blockchain",
   description: "Plataforma de crowdfunding Web3 con identidad digital verificada en blockchain",
 }
 

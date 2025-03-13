@@ -17,7 +17,7 @@ export default function Home() {
       goal: 25000,
       backers: 128,
       daysLeft: 15,
-      image: "/placeholder.svg?height=200&width=400",
+      image: "/img/campana/Reforestación Amazónica.jpeg",
     },
     {
       id: "2",
@@ -28,8 +28,9 @@ export default function Home() {
       goal: 20000,
       backers: 74,
       daysLeft: 21,
-      image: "/placeholder.svg?height=200&width=400",
+      image: "/img/campana/Energía Solar para Comunidades.jpg",
     },
+   
     {
       id: "3",
       title: "Educación Digital Inclusiva",
@@ -39,7 +40,7 @@ export default function Home() {
       goal: 15000,
       backers: 95,
       daysLeft: 7,
-      image: "/placeholder.svg?height=200&width=400",
+      image: "/img/campana/Educación Digital Inclusiva.jpg",
     },
   ]
 
@@ -50,7 +51,7 @@ export default function Home() {
       {/* Sección de características */}
       <section className="py-16 px-4 md:px-6 bg-gradient-to-b from-background to-background/95">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">¿Cómo funciona TrustFund DAO?</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">¿Cómo funciona TrustBlock?</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
             Nuestra plataforma combina la transparencia de blockchain con una experiencia de usuario intuitiva
           </p>
@@ -107,7 +108,7 @@ export default function Home() {
         <div className="container mx-auto text-center relative z-10">
           <h2 className="text-3xl font-bold mb-4">¿Listo para impulsar tu proyecto?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-300">
-            Únete a TrustFund DAO y comienza a recaudar fondos con la confianza y transparencia que ofrece la tecnología
+            Únete a TrustBlock y comienza a recaudar fondos con la confianza y transparencia que ofrece la tecnología
             blockchain.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
