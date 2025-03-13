@@ -1,0 +1,19 @@
+---
+description: Idea del proyecto
+globs: * 
+---
+Develop a Web3 crowdfunding platform named "TrustFund DAO" where non-governmental organizations (NGOs), entrepreneurs, and community groups can raise funds. The platform should leverage blockchain technology to ensure transparency and build trust among donors.
+
+Functionality:
+
+1.  Identity Verification: Implement a system where NGOs, entrepreneurs, and community groups can register and verify their identities on the blockchain. This could involve using Non-Fungible Tokens (NFTs) or credentials on Substrate to establish digital identities.
+2.  Campaign Creation: Allow verified users to launch crowdfunding campaigns. These campaigns should be able to receive funds in DOT or other tokens.
+3.  Transparent Fund Usage: Enable donors to track in real-time how funds are being utilized through blockchain technology.
+4.  Optional Rewards: Provide the option for campaigns to offer exclusive NFTs or other benefits to incentivize donations.
+
+Technologies:
+
+*   Digital Identity: Utilize Substrate and Kusama for identity verification.
+*   Smart Contracts: Implement crowdfunding functionality using Ink! on Polkadot.
+*   Web3 Connection: Use the Polkadot.js API for payments and wallet integration.
+*   NFTs: Consider using RMRK or Moonbeam for NFTs as certificates or rewards.
