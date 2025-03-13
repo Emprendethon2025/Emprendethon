@@ -1,10 +1,5 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Shield, CheckCircle, AlertCircle, Clock, FileText, UserCheck } from "lucide-react"
 import { VerificationStatus } from "@/components/verification-status"
 
 export default function VerificationPage() {

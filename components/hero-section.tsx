@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ConnectWalletButton } from "@/components/connect-wallet-button"
 
@@ -31,9 +32,11 @@ export function HeroSection() {
           <div className="flex-1 w-full max-w-md animate-slide-up">
             <div className="bg-darkblue/40 backdrop-blur-sm p-6 rounded-xl border border-skyblue/20 shadow-lg hover-glow">
               <div className="aspect-video bg-gradient-to-br from-skyblue/20 to-neonpink/20 rounded-lg flex items-center justify-center overflow-hidden">
-                <img
+                <Image
                   src="/placeholder.svg?height=300&width=500"
                   alt="TrustFund DAO Platform"
+                  width={500}
+                  height={300}
                   className="w-full h-auto rounded-lg transition-transform duration-700 hover:scale-105"
                 />
               </div>

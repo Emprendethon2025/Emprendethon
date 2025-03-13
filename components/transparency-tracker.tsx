@@ -1,10 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
-import { ArrowUpRight, ArrowDownLeft, ExternalLink, Calendar, Wallet, Users } from "lucide-react"
+import { ArrowUpRight, ArrowDownLeft, Wallet, Users } from "lucide-react"
 
 interface Transaction {
   id: string
@@ -30,14 +29,11 @@ export function TransparencyTracker({
   spentBudget,
   donorsCount
 }: TransparencyTrackerProps) {
-  const [view, setView] = useState<"list" | "chart">("list")
-
   const donations = transactions.filter((tx) => tx.type === "donation")
   const expenses = transactions.filter((tx) => tx.type === "expense")
 
   const totalDonations = donations.reduce((sum, tx) => sum + tx.amount, 0)
   const totalExpenses = expenses.reduce((sum, tx) => sum + tx.amount, 0)
-  const balance = totalDonations - totalExpenses
   const budgetProgress = (spentBudget / totalBudget) * 100
 
   return (

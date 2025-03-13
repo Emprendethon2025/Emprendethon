@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -8,8 +7,6 @@ import { Label } from "@/components/ui/label"
 import { Plus } from "lucide-react"
 
 export function RewardForm() {
-  const [rewards, setRewards] = useState<any[]>([])
-
   const addReward = () => {
     // En una implementación real, aquí se validarían los datos
     // y se añadiría la recompensa a la lista

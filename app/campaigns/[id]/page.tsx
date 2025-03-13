@@ -5,17 +5,20 @@ import { Badge } from "@/components/ui/badge"
 import { DonationForm } from "@/components/donation-form"
 import { TransparencyTracker } from "@/components/transparency-tracker"
 import { Clock, Users, Award, Shield, ExternalLink } from "lucide-react"
+import Image from "next/image"
 
-interface PageProps {
-  params: {
-    id: string
-  }
-}
+type Params = Promise<{ id: string }>;
 
-export default function CampaignDetailPage({ params }: PageProps) {
+export default async function CampaignDetailPage({
+  params
+}: {
+  params: Params;
+}) {
+  const { id } = await params;
+
   // En una implementación real, estos datos vendrían de una API o blockchain
   const campaign = {
-    id: params.id,
+    id,
     title: "Reforestación Amazónica",
     organization: "EcoFuturo ONG",
     description:
@@ -79,22 +82,25 @@ export default function CampaignDetailPage({ params }: PageProps) {
         date: "2023-10-15",
         amount: 1000,
         from: "5GrwvaEF...utQY",
-        type: "donation",
+        type: "donation" as const,
+        status: "completed" as const
       },
       {
         id: "tx2",
         date: "2023-10-16",
         amount: 500,
         from: "5FHneW46...v3VPc",
-        type: "donation",
+        type: "donation" as const,
+        status: "completed" as const
       },
       {
         id: "tx3",
         date: "2023-10-28",
         amount: 2000,
         to: "Vivero Amazonas",
-        type: "expense",
+        type: "expense" as const,
         purpose: "Compra de semillas",
+        status: "completed" as const
       },
     ],
   }
@@ -106,7 +112,13 @@ export default function CampaignDetailPage({ params }: PageProps) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Columna principal */}
         <div className="lg:col-span-2 space-y-8">
-          <img src={campaign.image || "/placeholder.svg"} alt={campaign.title} className="w-full h-auto rounded-xl" />
+          <Image 
+            src={campaign.image || "/placeholder.svg"} 
+            alt={campaign.title} 
+            width={800}
+            height={400}
+            className="w-full h-auto rounded-xl" 
+          />
 
           <div>
             <div className="flex items-center gap-2 mb-2">
@@ -162,7 +174,12 @@ export default function CampaignDetailPage({ params }: PageProps) {
                 </div>
               </TabsContent>
               <TabsContent value="transparency">
-                <TransparencyTracker transactions={campaign.transactions} />
+                <TransparencyTracker 
+                  transactions={campaign.transactions} 
+                  totalBudget={campaign.goal}
+                  spentBudget={campaign.raised}
+                  donorsCount={campaign.backers}
+                />
               </TabsContent>
             </Tabs>
           </div>
@@ -224,4 +241,3 @@ export default function CampaignDetailPage({ params }: PageProps) {
     </main>
   )
 }
-

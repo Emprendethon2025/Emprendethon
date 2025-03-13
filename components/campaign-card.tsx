@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Button } from "@/components/ui/button"
@@ -27,9 +28,11 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
     <Card className="overflow-hidden hover-scale card-transition border border-border/50 bg-card/80 backdrop-blur-sm">
       <CardHeader className="p-0">
         <div className="overflow-hidden">
-          <img
+          <Image
             src={campaign.image || "/placeholder.svg"}
             alt={campaign.title}
+            width={400}
+            height={192}
             className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
           />
         </div>
