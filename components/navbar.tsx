@@ -125,13 +125,30 @@ export function Navbar() {
                   >
                     Explorar
                   </Link>
-                  <Link
-                    href="/how-it-works"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-sm font-medium transition-colors hover:text-primary"
-                  >
-                    Cómo Funciona
-                  </Link>
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium text-muted-foreground">Cómo Funciona</p>
+                    <Link
+                      href="/how-it-works/verification"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-sm transition-colors hover:text-primary block pl-4"
+                    >
+                      Verificación
+                    </Link>
+                    <Link
+                      href="/how-it-works/transparency"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-sm transition-colors hover:text-primary block pl-4"
+                    >
+                      Transparencia
+                    </Link>
+                    <Link
+                      href="/how-it-works/rewards"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-sm transition-colors hover:text-primary block pl-4"
+                    >
+                      Recompensas
+                    </Link>
+                  </div>
                   <Link
                     href="/about"
                     onClick={() => setIsMenuOpen(false)}

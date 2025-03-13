@@ -40,7 +40,10 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
         <p className="text-muted-foreground mb-4 line-clamp-2">{campaign.description}</p>
 
         <div className="space-y-4">
-          <Progress value={progress} className="h-2 bg-muted" indicatorClassName="bg-neonpink" />
+          <Progress 
+            value={progress} 
+            className="h-2 bg-muted [&>div]:bg-neonpink" 
+          />
 
           <div className="flex justify-between text-sm">
             <div>
