@@ -1,243 +1,436 @@
-import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import { DonationForm } from "@/components/donation-form"
-import { TransparencyTracker } from "@/components/transparency-tracker"
-import { Clock, Users, Award, Shield, ExternalLink } from "lucide-react"
-import Image from "next/image"
-
-type Params = Promise<{ id: string }>;
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { DonationForm } from "@/components/donation-form";
+import { TransparencyTracker } from "@/components/transparency-tracker";
+import { Clock, Users, Award, Shield, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 export default async function CampaignDetailPage({
-  params
+  params,
 }: {
-  params: Params;
+  params: { id: string };
 }) {
-  const { id } = await params;
+  const { id } = params;
 
-  // En una implementación real, estos datos vendrían de una API o blockchain
-  const campaign = {
-    id,
-    title: "Reforestación Amazónica",
-    organization: "EcoFuturo ONG",
-    description:
-      "Proyecto para plantar 10,000 árboles nativos en zonas deforestadas de la Amazonía. Este proyecto busca restaurar ecosistemas degradados, proteger la biodiversidad y combatir el cambio climático a través de la reforestación con especies nativas.\n\nLos fondos recaudados se utilizarán para:\n- Adquisición de semillas y plántulas nativas\n- Capacitación de comunidades locales en técnicas de reforestación\n- Monitoreo y mantenimiento de las áreas reforestadas\n- Educación ambiental para prevenir la deforestación futura",
-    raised: 15000,
-    goal: 25000,
-    backers: 128,
-    daysLeft: 15,
-    image: "/img/campana/Reforestación Amazónica.jpeg",
-    verified: true,
-    category: "Medio Ambiente",
-    location: "Amazonía, Brasil",
-    website: "https://ecofuturo.org",
-    rewards: [
-      {
-        id: "1",
-        title: "Certificado Digital",
-        description: "NFT que certifica tu contribución a la plantación de un árbol",
-        minDonation: 50,
-        claimed: 87,
-      },
-      {
-        id: "2",
-        title: "Árbol Dedicado",
-        description: "Un árbol plantado con tu nombre y coordenadas GPS para que puedas visitarlo",
-        minDonation: 200,
-        claimed: 32,
-      },
-      {
-        id: "3",
-        title: "Patrocinador Oficial",
-        description: "Tu nombre/logo en nuestro sitio web y materiales promocionales + 10 árboles plantados",
-        minDonation: 1000,
-        claimed: 5,
-      },
-    ],
-    updates: [
-      {
-        id: "1",
-        date: "2023-10-15",
-        title: "¡Comenzamos la campaña!",
-        content: "Hoy lanzamos oficialmente nuestra campaña de reforestación. Gracias a todos por su apoyo inicial.",
-      },
-      {
-        id: "2",
-        date: "2023-10-28",
-        title: "Primera meta alcanzada",
-        content: "Hemos alcanzado el 25% de nuestra meta. Ya hemos comenzado a adquirir las primeras semillas.",
-      },
-      {
-        id: "3",
-        date: "2023-11-10",
-        title: "Preparación del terreno",
-        content:
-          "El equipo ha comenzado a preparar las primeras hectáreas para la plantación que comenzará el próximo mes.",
-      },
-    ],
-    transactions: [
-      {
-        id: "tx1",
-        date: "2023-10-15",
-        amount: 1000,
-        from: "5GrwvaEF...utQY",
-        type: "donation" as const,
-        status: "completed" as const
-      },
-      {
-        id: "tx2",
-        date: "2023-10-16",
-        amount: 500,
-        from: "5FHneW46...v3VPc",
-        type: "donation" as const,
-        status: "completed" as const
-      },
-      {
-        id: "tx3",
-        date: "2023-10-28",
-        amount: 2000,
-        to: "Vivero Amazonas",
-        type: "expense" as const,
-        purpose: "Compra de semillas",
-        status: "completed" as const
-      },
-    ],
-  }
+  // Datos de campañas (en una implementación real, estos vendrían de una API o blockchain)
+  const campaignsData = [
+    {
+      id: "0",
+      title: "Ayuda Urgente: Inundaciones en Bahía Blanca",
+      organization: "Cruz Roja Argentina",
+      description:
+        "Campaña de emergencia para asistir a las familias afectadas por las graves inundaciones en Bahía Blanca y zonas aledañas. Los fondos recaudados se utilizarán para:\n\n- Proporcionar kits de emergencia con alimentos, agua potable y artículos de higiene.\n- Habilitar refugios temporales para personas desplazadas.\n- Brindar asistencia médica y psicológica a los afectados.\n- Apoyar en las labores de limpieza y reconstrucción.\n\nLa situación es crítica y muchas familias lo han perdido todo. Con tu ayuda podemos llevar asistencia rápida y efectiva a quienes más lo necesitan en este momento de emergencia.",
+      raised: 8500,
+      goal: 50000,
+      backers: 106,
+      daysLeft: 10,
+      image: "/img/campana/52242f9a-f563-4e47-b21a-83ef501c00e6.jpeg",
+      featured: true,
+      verified: true,
+      category: "Ayuda Humanitaria",
+      location: "Bahía Blanca, Argentina",
+      website: "https://cruzroja.org.ar",
+      rewards: [
+        {
+          id: "1",
+          title: "Certificado Digital de Ayuda",
+          description:
+            "NFT que certifica tu contribución a la campaña de ayuda",
+          minDonation: 30,
+          claimed: 62,
+        },
+        {
+          id: "2",
+          title: "Donante Destacado",
+          description:
+            "Reconocimiento en el informe final de la campaña y certificado especial",
+          minDonation: 200,
+          claimed: 18,
+        },
+        {
+          id: "3",
+          title: "Patrocinador Oficial",
+          description:
+            "Tu nombre/logo en nuestro sitio web y materiales promocionales como patrocinador oficial de la ayuda",
+          minDonation: 1000,
+          claimed: 3,
+        },
+      ],
+      updates: [
+        {
+          id: "1",
+          date: "2025-03-10",
+          title: "¡Lanzamiento de la campaña de emergencia!",
+          content:
+            "Hemos lanzado esta campaña de emergencia para ayudar a las familias afectadas por las inundaciones en Bahía Blanca.",
+        },
+        {
+          id: "2",
+          date: "2025-03-12",
+          title: "Primeros kits de emergencia entregados",
+          content:
+            "Gracias a las primeras donaciones, hemos podido entregar 50 kits de emergencia a familias afectadas.",
+        },
+        {
+          id: "3",
+          date: "2025-03-14",
+          title: "Habilitación de refugio temporal",
+          content:
+            "Hemos habilitado un refugio temporal que ya alberga a 80 personas que han perdido sus hogares.",
+        },
+      ],
+      transactions: [
+        {
+          id: "tx1",
+          date: "2025-03-10",
+          amount: 2000,
+          from: "5GrwvaEF...utQY",
+          type: "donation" as const,
+          status: "completed" as const,
+        },
+        {
+          id: "tx2",
+          date: "2025-03-11",
+          amount: 1500,
+          from: "5FHneW46...v3VPc",
+          type: "donation" as const,
+          status: "completed" as const,
+        },
+        {
+          id: "tx3",
+          date: "2025-03-13",
+          amount: 5000,
+          from: "0x742d35...e7e6",
+          type: "donation" as const,
+          status: "completed" as const,
+        },
+      ],
+    },
+    {
+      id: "1",
+      title: "Reforestación Amazónica",
+      organization: "EcoFuturo ONG",
+      description:
+        "Proyecto para plantar 10,000 árboles nativos en zonas deforestadas de la Amazonía. Este proyecto busca restaurar ecosistemas degradados, proteger la biodiversidad y combatir el cambio climático a través de la reforestación con especies nativas.\n\nLos fondos recaudados se utilizarán para:\n- Adquisición de semillas y plántulas nativas\n- Capacitación de comunidades locales en técnicas de reforestación\n- Monitoreo y mantenimiento de las áreas reforestadas\n- Educación ambiental para prevenir la deforestación futura",
+      raised: 15000,
+      goal: 25000,
+      backers: 128,
+      daysLeft: 15,
+      image: "/img/campana/Reforestación Amazónica.jpeg",
+      verified: true,
+      category: "Medio Ambiente",
+      location: "Amazonía, Brasil",
+      website: "https://ecofuturo.org",
+      rewards: [
+        {
+          id: "1",
+          title: "Certificado Digital",
+          description:
+            "NFT que certifica tu contribución a la plantación de un árbol",
+          minDonation: 50,
+          claimed: 87,
+        },
+        {
+          id: "2",
+          title: "Árbol Dedicado",
+          description:
+            "Un árbol plantado con tu nombre y coordenadas GPS para que puedas visitarlo",
+          minDonation: 200,
+          claimed: 32,
+        },
+        {
+          id: "3",
+          title: "Patrocinador Oficial",
+          description:
+            "Tu nombre/logo en nuestro sitio web y materiales promocionales + 10 árboles plantados",
+          minDonation: 1000,
+          claimed: 5,
+        },
+      ],
+      updates: [
+        {
+          id: "1",
+          date: "2023-10-15",
+          title: "¡Comenzamos la campaña!",
+          content:
+            "Hoy lanzamos oficialmente nuestra campaña de reforestación. Gracias a todos por su apoyo inicial.",
+        },
+        {
+          id: "2",
+          date: "2023-10-28",
+          title: "Primera meta alcanzada",
+          content:
+            "Hemos alcanzado el 25% de nuestra meta. Ya hemos comenzado a adquirir las primeras semillas.",
+        },
+        {
+          id: "3",
+          date: "2023-11-10",
+          title: "Preparación del terreno",
+          content:
+            "El equipo ha comenzado a preparar las primeras hectáreas para la plantación que comenzará el próximo mes.",
+        },
+      ],
+      transactions: [
+        {
+          id: "tx1",
+          date: "2023-10-15",
+          amount: 1000,
+          from: "5GrwvaEF...utQY",
+          type: "donation" as const,
+          status: "completed" as const,
+        },
+        {
+          id: "tx2",
+          date: "2023-10-16",
+          amount: 500,
+          from: "5FHneW46...v3VPc",
+          type: "donation" as const,
+          status: "completed" as const,
+        },
+        {
+          id: "tx3",
+          date: "2023-10-20",
+          amount: 250,
+          from: "0x742d35...e7e6",
+          type: "donation" as const,
+          status: "completed" as const,
+        },
+      ],
+    },
+    // Aquí irían las demás campañas...
+  ];
 
-  const progress = Math.min(Math.round((campaign.raised / campaign.goal) * 100), 100)
+  // Buscar la campaña según el ID
+  const campaign = campaignsData.find((c) => c.id === id) || campaignsData[0];
+
+  const progress = Math.min(
+    Math.round((campaign.raised / campaign.goal) * 100),
+    100
+  );
 
   return (
-    <main className="container mx-auto py-12 px-4 md:px-6">
+    <div className="container mx-auto py-12 px-4 md:px-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Columna principal */}
         <div className="lg:col-span-2 space-y-8">
-          <Image 
-            src={campaign.image || "/placeholder.svg"} 
-            alt={campaign.title} 
-            width={800}
-            height={400}
-            className="w-full h-auto rounded-xl" 
-          />
+          <div className="rounded-lg overflow-hidden">
+            <Image
+              src={campaign.image || "/placeholder.svg"}
+              alt={campaign.title}
+              width={1200}
+              height={600}
+              className="w-full h-auto object-cover"
+            />
+          </div>
 
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <Badge variant="outline" className="text-primary border-primary">
+            <div className="flex items-center gap-3 mb-2">
+              <Badge variant="outline" className="bg-primary/10 text-primary">
                 {campaign.category}
               </Badge>
               {campaign.verified && (
-                <Badge className="bg-green-100 text-green-800 hover:bg-green-100">
-                  <Shield className="h-3 w-3 mr-1" /> Verificado
+                <Badge variant="outline" className="bg-green-500/10 text-green-500">
+                  <Shield className="h-3 w-3 mr-1" />
+                  Verificado
+                </Badge>
+              )}
+              {campaign.id === "0" && (
+                <Badge variant="outline" className="bg-red-500/10 text-red-500">
+                  URGENTE
                 </Badge>
               )}
             </div>
-            <h1 className="text-3xl font-bold mb-2">{campaign.title}</h1>
-            <div className="flex items-center gap-2 text-muted-foreground mb-6">
-              <span>Por {campaign.organization}</span>
-              <span>•</span>
-              <span>{campaign.location}</span>
+
+            <h1 className="text-4xl font-bold mb-4">{campaign.title}</h1>
+            <div className="flex items-center gap-1 text-muted-foreground mb-6">
+              <span className="font-medium text-foreground">
+                Por {campaign.organization}
+              </span>
+              {campaign.location && (
+                <>
+                  <span className="mx-2">•</span>
+                  <span>{campaign.location}</span>
+                </>
+              )}
+              {campaign.website && (
+                <>
+                  <span className="mx-2">•</span>
+                  <a
+                    href={campaign.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center hover:text-primary"
+                  >
+                    Sitio web <ExternalLink className="h-3 w-3 ml-1" />
+                  </a>
+                </>
+              )}
             </div>
 
-            <Tabs defaultValue="about">
-              <TabsList className="mb-4">
-                <TabsTrigger value="about">Acerca del Proyecto</TabsTrigger>
+            <Tabs defaultValue="about" className="w-full">
+              <TabsList className="grid w-full grid-cols-3">
+                <TabsTrigger value="about">Acerca de</TabsTrigger>
                 <TabsTrigger value="updates">Actualizaciones</TabsTrigger>
                 <TabsTrigger value="transparency">Transparencia</TabsTrigger>
               </TabsList>
-              <TabsContent value="about" className="space-y-6">
-                <div className="whitespace-pre-line text-muted-foreground">{campaign.description}</div>
+              <TabsContent value="about" className="space-y-4 py-4">
+                <div className="whitespace-pre-line">{campaign.description}</div>
 
-                {campaign.website && (
-                  <div className="flex items-center gap-2">
-                    <Button variant="outline" size="sm" asChild>
-                      <a
-                        href={campaign.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
-                      >
-                        Visitar sitio web <ExternalLink className="h-4 w-4" />
-                      </a>
-                    </Button>
+                {campaign.rewards && campaign.rewards.length > 0 && (
+                  <div className="mt-8">
+                    <h3 className="text-xl font-bold mb-4 flex items-center">
+                      <Award className="h-5 w-5 mr-2" />
+                      Recompensas por tu apoyo
+                    </h3>
+                    <div className="space-y-4">
+                      {campaign.rewards.map((reward) => (
+                        <div
+                          key={reward.id}
+                          className="border border-border rounded-lg p-4 transition-colors hover:bg-accent"
+                        >
+                          <div className="flex justify-between mb-2">
+                            <h4 className="font-bold">{reward.title}</h4>
+                            <span className="text-sm font-medium">
+                              Donación mínima: {reward.minDonation} DOT
+                            </span>
+                          </div>
+                          <p className="text-muted-foreground mb-2">
+                            {reward.description}
+                          </p>
+                          <div className="text-sm text-muted-foreground">
+                            {reward.claimed} personas ya lo han reclamado
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
               </TabsContent>
-              <TabsContent value="updates">
-                <div className="space-y-6">
-                  {campaign.updates.map((update) => (
-                    <div key={update.id} className="border-l-2 border-primary pl-4 pb-6">
-                      <div className="text-sm text-muted-foreground mb-1">{update.date}</div>
-                      <h3 className="text-lg font-semibold mb-2">{update.title}</h3>
-                      <p className="text-muted-foreground">{update.content}</p>
-                    </div>
-                  ))}
-                </div>
+              <TabsContent value="updates" className="space-y-4 py-4">
+                {campaign.updates && campaign.updates.length > 0 ? (
+                  <div className="space-y-6">
+                    {campaign.updates.map((update) => (
+                      <div key={update.id} className="border-b border-border pb-6 last:border-0">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-sm font-medium text-muted-foreground">
+                            {update.date}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold mb-2">{update.title}</h3>
+                        <p className="text-muted-foreground">{update.content}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-muted-foreground">
+                    No hay actualizaciones disponibles para esta campaña.
+                  </p>
+                )}
               </TabsContent>
-              <TabsContent value="transparency">
-                <TransparencyTracker 
-                  transactions={campaign.transactions} 
-                  totalBudget={campaign.goal}
-                  spentBudget={campaign.raised}
-                  donorsCount={campaign.backers}
-                />
+              <TabsContent value="transparency" className="py-4">
+                <div className="space-y-6">
+                  <p className="text-muted-foreground">
+                    Todas las transacciones de esta campaña son verificables y rastreables a través de la blockchain.
+                  </p>
+
+                  <TransparencyTracker 
+                    transactions={campaign.transactions}
+                    totalBudget={campaign.goal}
+                    spentBudget={campaign.raised}
+                    donorsCount={campaign.backers}
+                  />
+
+                  <h3 className="text-xl font-bold mb-4">Transacciones recientes</h3>
+
+                  {campaign.transactions && campaign.transactions.length > 0 ? (
+                    <div className="border rounded-lg divide-y">
+                      {campaign.transactions.map((tx) => (
+                        <div key={tx.id} className="flex justify-between p-4">
+                          <div>
+                            <div className="font-medium">
+                              {tx.type === "donation" ? "Donación" : "Gasto"}
+                            </div>
+                            <div className="text-sm text-muted-foreground">
+                              {tx.date} • De: {tx.from}
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <div
+                              className={`font-medium ${
+                                tx.type === "donation" ? "text-green-500" : "text-amber-500"
+                              }`}
+                            >
+                              {tx.type === "donation" ? "+" : "-"}{tx.amount} DOT
+                            </div>
+                            <div className="text-sm text-muted-foreground capitalize">
+                              {tx.status}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-muted-foreground">
+                      No hay transacciones registradas para esta campaña.
+                    </p>
+                  )}
+                </div>
               </TabsContent>
             </Tabs>
           </div>
         </div>
 
-        {/* Barra lateral */}
-        <div className="space-y-8">
-          <div className="bg-card rounded-xl p-6 border shadow-sm">
-            <div className="space-y-4 mb-6">
-              <Progress value={progress} className="h-2" />
-
-              <div className="flex justify-between">
+        <div className="lg:col-span-1">
+          <div className="sticky top-20 space-y-6">
+            <div className="border border-border rounded-lg p-6 bg-card">
+              <div className="space-y-6">
                 <div>
-                  <div className="text-2xl font-bold">{campaign.raised.toLocaleString()} DOT</div>
-                  <div className="text-muted-foreground">de {campaign.goal.toLocaleString()} DOT</div>
+                  <h3 className="text-2xl font-bold mb-1">
+                    {campaign.raised.toLocaleString()} DOT
+                  </h3>
+                  <p className="text-muted-foreground">
+                    recaudados de {campaign.goal.toLocaleString()} DOT
+                  </p>
                 </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold">{progress}%</div>
-                  <div className="text-muted-foreground">Completado</div>
-                </div>
-              </div>
 
-              <div className="flex justify-between text-sm">
-                <div className="flex items-center gap-1">
-                  <Users className="h-4 w-4" />
-                  <span>{campaign.backers} donantes</span>
+                <Progress value={progress} className="h-2" />
+
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <div className="flex items-center gap-1">
+                      <Users className="h-4 w-4 text-muted-foreground" />
+                      <span className="font-bold">{campaign.backers}</span>
+                    </div>
+                    <p className="text-muted-foreground">Donantes</p>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="h-4 w-4 text-muted-foreground" />
+                      <span className="font-bold">{campaign.daysLeft}</span>
+                    </div>
+                    <p className="text-muted-foreground">Días restantes</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  <Clock className="h-4 w-4" />
-                  <span>{campaign.daysLeft} días restantes</span>
-                </div>
+
+                <DonationForm campaignId={campaign.id} />
               </div>
             </div>
 
-            <DonationForm campaignId={campaign.id} />
-          </div>
-
-          {/* Recompensas */}
-          <div className="bg-card rounded-xl p-6 border shadow-sm">
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-              <Award className="h-5 w-5 text-primary" />
-              Recompensas
-            </h3>
-            <div className="space-y-4">
-              {campaign.rewards.map((reward) => (
-                <div key={reward.id} className="border rounded-lg p-4 hover:border-primary transition-colors">
-                  <h4 className="font-semibold mb-1">{reward.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-2">{reward.description}</p>
-                  <div className="flex justify-between items-center">
-                    <div className="text-sm font-medium">Mínimo: {reward.minDonation} DOT</div>
-                    <div className="text-xs text-muted-foreground">{reward.claimed} reclamados</div>
-                  </div>
-                </div>
-              ))}
+            <div className="border border-border rounded-lg p-6 bg-card">
+              <h3 className="font-bold mb-4">Comparte esta campaña</h3>
+              <div className="flex gap-2">
+                <Button variant="outline" className="flex-1">
+                  Copiar enlace
+                </Button>
+                <Button variant="outline" className="flex-1">
+                  Compartir
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </main>
-  )
+    </div>
+  );
 }
