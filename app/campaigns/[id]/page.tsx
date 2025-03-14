@@ -284,18 +284,18 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
                       {campaign.rewards.map((reward) => (
                         <div
                           key={reward.id}
-                          className="border border-border rounded-lg p-4 transition-colors hover:bg-accent"
+                          className="border border-border rounded-lg p-4 transition-colors hover:bg-accent hover:text-white group"
                         >
                           <div className="flex justify-between mb-2">
                             <h4 className="font-bold">{reward.title}</h4>
-                            <span className="text-sm font-medium">
+                            <span className="text-sm font-medium group-hover:text-white">
                               Donación mínima: {reward.minDonation} DOT
                             </span>
                           </div>
-                          <p className="text-muted-foreground mb-2">
+                          <p className="text-muted-foreground mb-2 group-hover:text-white">
                             {reward.description}
                           </p>
-                          <div className="text-sm text-muted-foreground">
+                          <div className="text-sm text-muted-foreground group-hover:text-white">
                             {reward.claimed} personas ya lo han reclamado
                           </div>
                         </div>
