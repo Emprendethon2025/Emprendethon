@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ConnectWalletButton } from "@/components/connect-wallet-button";
 import {
@@ -27,8 +28,14 @@ export function Navbar() {
             href="/"
             className="flex items-center space-x-2 transition-opacity hover:opacity-80"
           >
-            <span className="text-2xl font-bold gradient-text">TrustBlock</span>
-            {/* <span className="font-bold text-foreground">DAO</span> */}
+            <Image
+              src="/img/icon.jpeg"
+              alt="TrustBlock"
+              width={150}
+              height={150}
+              className="rounded-sm"
+            />
+            {/* <span className="font-bold">DAO</span> */}
           </Link>
 
           <NavigationMenu className="hidden md:flex">
@@ -51,7 +58,13 @@ export function Navbar() {
                           href="/"
                         >
                           <div className="mt-4 mb-2 text-lg font-medium text-white">
-                            TrustBlock
+                            <Image
+                              src="/img/icon.jpeg"
+                              alt="TrustBlock"
+                              width={80}
+                              height={80}
+                              className="rounded-sm"
+                            />
                           </div>
                           <p className="text-sm leading-tight text-white/90">
                             Crowdfunding con identidad verificada en blockchain
@@ -149,9 +162,13 @@ export function Navbar() {
                   className="flex items-center space-x-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <span className="text-2xl font-bold gradient-text">
-                    TrustBlock
-                  </span>
+                  <Image
+                    src="/img/icon.jpeg"
+                    alt="TrustBlock"
+                    width={100}
+                    height={100}
+                    className="rounded-sm"
+                  />
                   {/* <span className="font-bold">DAO</span> */}
                 </Link>
                 <div className="grid gap-4">

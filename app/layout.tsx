@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: "TrustBlock - Crowdfunding con Blockchain",
   description:
     "Plataforma de crowdfunding Web3 con identidad digital verificada en blockchain",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
