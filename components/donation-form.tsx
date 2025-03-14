@@ -69,7 +69,7 @@ export function DonationForm({ campaignId }: DonationFormProps) {
     }
   }
 
-  const presetAmounts = [50, 100, 500, 1000]
+  const presetAmounts = [1, 5, 10, 15]
 
   // Simulación de wallet conectado para demo
   const handleConnectWallet = () => {
