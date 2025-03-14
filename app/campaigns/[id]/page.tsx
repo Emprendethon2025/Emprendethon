@@ -103,6 +103,61 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
           type: "donation" as const,
           status: "completed" as const,
         },
+        {
+          id: "tx4",
+          date: "2025-03-14",
+          amount: 1200,
+          type: "expense" as const,
+          purpose: "Compra de kits de emergencia con alimentos y artículos básicos",
+          category: "Suministros",
+          beneficiaries: 50,
+          to: "Proveedor Local de Suministros",
+          status: "completed" as const,
+        },
+        {
+          id: "tx5",
+          date: "2025-03-14",
+          amount: 800,
+          type: "expense" as const,
+          purpose: "Habilitación de refugio temporal (materiales y acondicionamiento)",
+          category: "Infraestructura",
+          beneficiaries: 80,
+          to: "Centro Comunitario Municipal",
+          status: "completed" as const,
+        },
+        {
+          id: "tx6",
+          date: "2025-03-15",
+          amount: 500,
+          type: "expense" as const,
+          purpose: "Transporte de voluntarios y suministros a zonas afectadas",
+          category: "Logistica",
+          beneficiaries: 120,
+          to: "Empresa de Transporte Local",
+          status: "completed" as const,
+        },
+        {
+          id: "tx7",
+          date: "2025-03-16",
+          amount: 1500,
+          type: "expense" as const,
+          purpose: "Medicamentos y atención médica para afectados",
+          category: "Salud",
+          beneficiaries: 35,
+          to: "Farmacia Comunitaria",
+          status: "completed" as const,
+        },
+        {
+          id: "tx8",
+          date: "2025-03-17",
+          amount: 300,
+          type: "expense" as const,
+          purpose: "Materiales educativos para niños en refugios",
+          category: "Educacion",
+          beneficiaries: 22,
+          to: "Librería Educativa",
+          status: "completed" as const,
+        }
       ],
     },
     {
@@ -194,6 +249,61 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
           type: "donation" as const,
           status: "completed" as const,
         },
+        {
+          id: "tx4",
+          date: "2023-10-25",
+          amount: 400,
+          type: "expense" as const,
+          purpose: "Compra de semillas nativas para reforestación",
+          category: "Suministros",
+          beneficiaries: 0,
+          to: "Banco de Semillas Amazónicas",
+          status: "completed" as const,
+        },
+        {
+          id: "tx5",
+          date: "2023-11-01",
+          amount: 300,
+          type: "expense" as const,
+          purpose: "Equipamiento para preparación del terreno",
+          category: "Infraestructura",
+          beneficiaries: 0,
+          to: "Ferretería Ecológica",
+          status: "completed" as const,
+        },
+        {
+          id: "tx6",
+          date: "2023-11-05",
+          amount: 250,
+          type: "expense" as const,
+          purpose: "Capacitación a comunidades locales en técnicas de reforestación",
+          category: "Educacion",
+          beneficiaries: 15,
+          to: "Consultores Ambientales",
+          status: "completed" as const,
+        },
+        {
+          id: "tx7",
+          date: "2023-11-10",
+          amount: 180,
+          type: "expense" as const,
+          purpose: "Transporte de materiales y personal a la zona de plantación",
+          category: "Logistica",
+          beneficiaries: 8,
+          to: "Transportes Amazónicos",
+          status: "completed" as const,
+        },
+        {
+          id: "tx8",
+          date: "2023-11-15",
+          amount: 120,
+          type: "expense" as const,
+          purpose: "Material informativo sobre conservación para comunidades",
+          category: "Administrativo",
+          beneficiaries: 45,
+          to: "Imprenta Sostenible",
+          status: "completed" as const,
+        }
       ],
     },
     // Aquí irían las demás campañas...
@@ -349,8 +459,13 @@ export default async function CampaignDetailPage({ params }: { params: Promise<{
                               {tx.type === "donation" ? "Donación" : "Gasto"}
                             </div>
                             <div className="text-sm text-muted-foreground">
-                              {tx.date} • De: {tx.from}
+                              {tx.date} • {tx.type === "donation" ? `De: ${tx.from}` : `Para: ${tx.to}`}
                             </div>
+                            {tx.type === "expense" && (
+                              <div className="text-sm text-muted-foreground">
+                                Propósito: {tx.purpose} ({tx.category})
+                              </div>
+                            )}
                           </div>
                           <div className="text-right">
                             <div
