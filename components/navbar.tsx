@@ -48,6 +48,13 @@ export function Navbar() {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
+                <Link href="/licitaciones" legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Licitaciones
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
                 <NavigationMenuTrigger>Cómo Funciona</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
@@ -178,6 +185,13 @@ export function Navbar() {
                     className="text-sm font-medium transition-colors hover:text-primary"
                   >
                     Explorar
+                  </Link>
+                  <Link
+                    href="/licitaciones"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-sm font-medium transition-colors hover:text-primary"
+                  >
+                    Licitaciones
                   </Link>
                   <div className="space-y-2">
                     <p className="text-sm font-medium text-muted-foreground">
