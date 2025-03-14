@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
+import { toast } from "sonner"
 
 interface DonationFormProps {
   campaignId: string
@@ -36,11 +37,33 @@ export function DonationForm({ campaignId }: DonationFormProps) {
       setAmount("")
       setIsAnonymous(false)
 
-      // Mostrar mensaje de éxito (en una implementación real)
-      alert("¡Donación realizada con éxito! Gracias por tu apoyo.")
+      // Mostrar toast de éxito con mejor estilo
+      toast.success("¡Donación realizada con éxito!", {
+        description: `Has donado ${amount} DOT a esta campaña. ¡Gracias por tu apoyo!`,
+        style: {
+          background: "hsl(222, 13%, 14%)", // Mismo color de fondo que la página
+          border: "1px solid hsla(190, 95%, 39%, 0.4)",
+          color: "white",
+          fontWeight: "500", // Texto más claro y legible
+        },
+        descriptionClassName: "!text-white", // Forzar color blanco
+        icon: "✓",
+      })
     } catch (error) {
       console.error("Error al procesar donación:", error)
-      alert("Hubo un error al procesar tu donación. Por favor intenta de nuevo.")
+      
+      // Mostrar toast de error con mejor estilo
+      toast.error("Error al procesar donación", {
+        description: "Hubo un problema al procesar tu donación. Por favor intenta de nuevo.",
+        style: {
+          background: "hsl(222, 13%, 14%)", // Mismo color de fondo que la página
+          border: "1px solid hsla(326, 100%, 74%, 0.4)",
+          color: "white",
+          fontWeight: "500", // Texto más claro y legible
+        },
+        descriptionClassName: "!text-white", // Forzar color blanco
+        icon: "✕",
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -127,4 +150,3 @@ export function DonationForm({ campaignId }: DonationFormProps) {
     </form>
   )
 }
-

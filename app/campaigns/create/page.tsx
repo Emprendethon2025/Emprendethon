@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -10,13 +11,36 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { VerificationStatus } from "@/components/verification-status"
 import { RewardForm } from "@/components/reward-form"
 import { Upload, Target, Award, Info } from "lucide-react"
+import { toast } from "sonner"
 
 export default function CreateCampaignPage() {
+  const router = useRouter()
   const [step, setStep] = useState(1)
   const [isVerified, setIsVerified] = useState(false)
 
   const nextStep = () => setStep((prev) => Math.min(prev + 1, 4))
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1))
+  
+  const handleCreateCampaign = () => {
+    // Simulación de creación de campaña (aquí iría la lógica real)
+    setTimeout(() => {
+      // Mostrar toast de éxito con mejor estilo
+      toast.success("¡Campaña creada con éxito!", {
+        description: "Tu campaña ha sido creada y está lista para recibir donaciones.",
+        style: {
+          background: "hsl(222, 13%, 14%)", // Mismo color de fondo que la página
+          border: "1px solid hsla(190, 95%, 39%, 0.4)",
+          color: "white",
+          fontWeight: "500", // Texto más claro y legible
+        },
+        descriptionClassName: "!text-white", // Forzar color blanco
+        icon: "✓",
+      })
+      
+      // Redireccionar al inicio
+      router.push("/")
+    }, 1000) // Simular tiempo de procesamiento
+  }
 
   return (
     <main className="container mx-auto py-12 px-4 md:px-6">
@@ -209,7 +233,7 @@ export default function CreateCampaignPage() {
               <Button variant="outline" onClick={prevStep}>
                 Anterior
               </Button>
-              <Button>Crear Campaña</Button>
+              <Button onClick={handleCreateCampaign}>Crear Campaña</Button>
             </CardFooter>
           </Card>
         )}
@@ -217,4 +241,3 @@ export default function CreateCampaignPage() {
     </main>
   )
 }
-
