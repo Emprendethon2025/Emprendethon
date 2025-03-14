@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CampaignCard } from "@/components/campaign-card";
+import Image from "next/image";
 import {
   Select,
   SelectContent,
@@ -108,9 +109,11 @@ export default function CampaignsPage() {
         <div className="mb-10 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-lg p-6 border border-blue-500/50">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="md:w-1/3">
-              <img 
-                src={campaigns.find(c => c.featured)?.image} 
-                alt={campaigns.find(c => c.featured)?.title}
+              <Image 
+                src={campaigns.find(c => c.featured)?.image || ""} 
+                alt={campaigns.find(c => c.featured)?.title || "Campaña destacada"}
+                width={500}
+                height={300}
                 className="w-full h-64 object-cover rounded-lg" 
               />
             </div>

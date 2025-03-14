@@ -7,12 +7,9 @@ import { TransparencyTracker } from "@/components/transparency-tracker";
 import { Clock, Users, Award, Shield, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
-export default async function CampaignDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const { id } = params;
+export default async function CampaignDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  // En Next.js 15, params es una promesa que debe esperarse
+  const { id: campaignId } = await params;
 
   // Datos de campañas (en una implementación real, estos vendrían de una API o blockchain)
   const campaignsData = [
@@ -203,7 +200,7 @@ export default async function CampaignDetailPage({
   ];
 
   // Buscar la campaña según el ID
-  const campaign = campaignsData.find((c) => c.id === id) || campaignsData[0];
+  const campaign = campaignsData.find((c) => c.id === campaignId) || campaignsData[0];
 
   const progress = Math.min(
     Math.round((campaign.raised / campaign.goal) * 100),
@@ -413,7 +410,7 @@ export default async function CampaignDetailPage({
                   </div>
                 </div>
 
-                <DonationForm campaignId={campaign.id} />
+                <DonationForm campaignId={campaignId} />
               </div>
             </div>
 

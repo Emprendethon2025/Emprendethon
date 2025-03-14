@@ -17,7 +17,7 @@ export function AboutSection() {
               <Globe className="h-12 w-12 text-skyblue mb-4" />
               <h3 className="text-xl font-bold mb-2">Impacto Global</h3>
               <p className="text-muted-foreground">
-                Conectamos donantes con proyectos de impacto social y ambiental en todo el mundo.
+                Conectamos inversores con empresas, startups y proyectos innovadores en todo el mundo.
               </p>
             </CardContent>
           </Card>

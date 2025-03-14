@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CalendarDays, Target, TrendingUp, Award } from "lucide-react";
+import { CalendarDays, Target, TrendingUp } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -9,7 +9,7 @@ export default function AboutPage() {
         <p className="text-muted-foreground mb-8">
           TrustBlock es una plataforma revolucionaria que combina la
           transparencia de la tecnología blockchain con el poder del
-          crowdfunding para impulsar proyectos sociales y ambientales.
+          crowdfunding para impulsar empresas, startups y proyectos innovadores.
         </p>
 
         <div className="space-y-12">
@@ -17,7 +17,7 @@ export default function AboutPage() {
             <h2 className="text-2xl font-semibold mb-4">Nuestra Misión</h2>
             <p className="text-muted-foreground">
               Nuestro objetivo es democratizar el acceso a la financiación de
-              proyectos de impacto social y ambiental, eliminando las barreras
+              empresas y proyectos innovadores, eliminando las barreras
               tradicionales y creando un ecosistema transparente y confiable.
             </p>
           </section>
@@ -33,23 +33,21 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="p-4 bg-muted/50 rounded-lg">
-                <h3 className="font-medium mb-2">Impacto Social</h3>
+                <h3 className="font-medium mb-2">Innovación</h3>
                 <p className="text-sm text-muted-foreground">
-                  Nos enfocamos en proyectos que generan un impacto positivo en
-                  la sociedad.
+                  Nos enfocamos en proyectos que impulsan la innovación y el crecimiento económico.
                 </p>
               </div>
               <div className="p-4 bg-muted/50 rounded-lg">
-                <h3 className="font-medium mb-2">Innovación</h3>
+                <h3 className="font-medium mb-2">Emprendimiento</h3>
                 <p className="text-sm text-muted-foreground">
-                  Utilizamos tecnología blockchain para revolucionar el
-                  crowdfunding.
+                  Fomentamos el espíritu emprendedor y el desarrollo de nuevas empresas.
                 </p>
               </div>
               <div className="p-4 bg-muted/50 rounded-lg">
                 <h3 className="font-medium mb-2">Comunidad</h3>
                 <p className="text-sm text-muted-foreground">
-                  Fomentamos una comunidad activa y participativa.
+                  Fomentamos una comunidad activa y participativa que apoye a las empresas y proyectos innovadores.
                 </p>
               </div>
             </div>
@@ -61,18 +59,18 @@ export default function AboutPage() {
               <div className="p-4 bg-muted/50 rounded-lg text-center">
                 <div className="text-3xl font-bold text-skyblue mb-2">100+</div>
                 <p className="text-sm text-muted-foreground">
-                  Proyectos Financiados
+                  Empresas Financiadas
                 </p>
               </div>
               <div className="p-4 bg-muted/50 rounded-lg text-center">
                 <div className="text-3xl font-bold text-skyblue mb-2">50K+</div>
                 <p className="text-sm text-muted-foreground">
-                  Donantes Activos
+                  Inversores Activos
                 </p>
               </div>
               <div className="p-4 bg-muted/50 rounded-lg text-center">
                 <div className="text-3xl font-bold text-skyblue mb-2">1M+</div>
-                <p className="text-sm text-muted-foreground">DOT Donados</p>
+                <p className="text-sm text-muted-foreground">Fondos Recaudados</p>
               </div>
             </div>
           </section>
@@ -81,21 +79,21 @@ export default function AboutPage() {
             <h2 className="text-2xl font-semibold mb-4">Modelo de Negocio</h2>
             <p className="text-muted-foreground mb-4">
               TrustBlock posee dos medios principales para generar ingresos sostenibles mientras
-              mantiene la accesibilidad para causas sociales:
+              mantiene la accesibilidad para empresas y proyectos innovadores:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="p-6 bg-muted/50 rounded-lg border border-border">
                 <h3 className="text-xl font-medium mb-2 text-skyblue">Regalías por Transacciones</h3>
                 <p className="text-muted-foreground">
                   TrustBlock aplica una comisión de entre 2% y 3% del total recaudado en campañas con fines
-                  de lucro (emprendimientos y recaudaciones independientes). Las campañas de ONGs y causas
-                  sociales tienen comisiones reducidas o nulas.
+                  de lucro (emprendimientos y recaudaciones independientes). Las campañas de empresas y proyectos
+                  innovadores tienen comisiones reducidas o nulas.
                 </p>
               </div>
               <div className="p-6 bg-muted/50 rounded-lg border border-border">
                 <h3 className="text-xl font-medium mb-2 text-skyblue">Suscripción PRO</h3>
                 <p className="text-muted-foreground">
-                  Ofrecemos un nivel premium a $9.99 USD mensuales que proporciona a las organizaciones
+                  Ofrecemos un nivel premium a $9.99 USD mensuales que proporciona a las empresas y proyectos
                   un certificado de verificación extra y posicionamiento destacado en la plataforma.
                   Incluye herramientas adicionales de análisis y marketing.
                 </p>
@@ -126,7 +124,7 @@ export default function AboutPage() {
                     <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
                       <li>Implementación de comisión en campañas con fines de lucro (2-3%).</li>
                       <li>Activación del modelo de suscripción mensual con beneficios de verificación y campañas destacadas.</li>
-                      <li>Alianzas con ONGs y emprendedores locales para generar confianza y casos de éxito.</li>
+                      <li>Alianzas con empresas y proyectos innovadores locales para generar confianza y casos de éxito.</li>
                       <li>Prueba piloto con el gobierno o municipalidades para demostrar el uso del sistema en fondos públicos.</li>
                     </ul>
                   </div>
@@ -177,7 +175,7 @@ export default function AboutPage() {
                     <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
                       <li>Desarrollo de NFTs como certificados de donación y recompensas.</li>
                       <li>Lanzamiento de un token nativo de TrustBlock en la blockchain de Polkadot.</li>
-                      <li>Asociaciones con más ONGs, startups y comunidades para generar más campañas y adopción.</li>
+                      <li>Asociaciones con más empresas y proyectos innovadores para generar más campañas y adopción.</li>
                       <li>Exploración de grants en el ecosistema Polkadot/Kusama para poder seguir financiando el proyecto.</li>
                     </ul>
                   </div>
@@ -234,7 +232,7 @@ export default function AboutPage() {
                       <li>Asegurar un slot de parachain en Polkadot para optimizar costos y velocidad.</li>
                       <li>Expansión regional: integrar más países y partners estratégicos.</li>
                       <li>Modelo de financiación híbrido: permitir campañas con fondos en FIAT a través de stablecoins oficiales.</li>
-                      <li>Programa de grants para incentivar la creación de campañas con impacto social.</li>
+                      <li>Programa de grants para incentivar la creación de campañas con impacto económico.</li>
                     </ul>
                   </div>
                   <div>
@@ -275,7 +273,7 @@ export default function AboutPage() {
             <div className="p-6 bg-muted/50 rounded-lg">
               <p className="text-muted-foreground mb-4">
                 ¿Tienes un proyecto que quieres impulsar? ¿O quieres contribuir
-                a proyectos de impacto? Únete a nuestra comunidad y sé parte del
+                a proyectos innovadores? Únete a nuestra comunidad y sé parte del
                 cambio.
               </p>
               <div className="flex gap-4">

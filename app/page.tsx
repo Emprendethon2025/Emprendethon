@@ -129,9 +129,9 @@ export default function Home() {
             ¿Listo para impulsar tu proyecto?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-300">
-            Únete a TrustBlock y haz crecer tu causa social con el respaldo de nuestra 
+            Únete a TrustBlock y haz crecer tu empresa, startup o proyecto con el respaldo de nuestra 
             plataforma de confianza. Comienza a recaudar fondos de manera transparente, 
-            permitiendo que los donantes vean el impacto real de sus contribuciones.
+            atrayendo inversores que pueden ver en tiempo real el progreso y utilización de sus contribuciones.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
