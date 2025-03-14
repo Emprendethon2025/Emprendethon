@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CampaignCard } from "@/components/campaign-card";
@@ -140,9 +142,15 @@ export default function CampaignsPage() {
                   </div>
                 </div>
               </div>
-              <Link href={`/campaigns/${campaigns.find(c => c.featured)?.id}`} passHref>
-                <Button size="lg" className="w-full md:w-auto">Donar Ahora</Button>
-              </Link>
+              <Button 
+                asChild
+                size="lg" 
+                className="w-full md:w-auto"
+              >
+                <Link href={`/campaigns/${campaigns.find(c => c.featured)?.id}`}>
+                  Donar Ahora
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

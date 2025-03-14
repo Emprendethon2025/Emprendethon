@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Users, Wallet, LineChart } from "lucide-react";
@@ -135,17 +137,23 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
+              asChild
               size="lg"
               className="bg-neonpink hover:bg-neonpink/80 text-white transition-colors hover-scale"
             >
-              Crear Campaña
+              <Link href="/campaigns/create">
+                Crear Campaña
+              </Link>
             </Button>
             <Button
+              asChild
               size="lg"
               variant="outline"
               className="border-skyblue/50 text-skyblue hover:bg-skyblue/10 hover:text-skyblue transition-colors"
             >
-              Explorar Proyectos
+              <Link href="/campaigns">
+                Explorar Proyectos
+              </Link>
             </Button>
           </div>
         </div>

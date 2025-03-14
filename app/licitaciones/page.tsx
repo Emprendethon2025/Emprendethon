@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 // Sample data for licitaciones
 const licitacionesData = [
@@ -155,10 +156,12 @@ export default function LicitacionesPage() {
               <div className="font-semibold text-lg">{licitacion.budget}</div>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Button variant="outline">Ver detalles</Button>
+              <Button variant="outline" asChild>
+                <Link href={`/licitaciones/${licitacion.id}`}>Ver detalles</Link>
+              </Button>
               {licitacion.status === "Abierta" && (
-                <Button className="bg-neonpink hover:bg-neonpink/80 transition-colors">
-                  Participar
+                <Button className="bg-neonpink hover:bg-neonpink/80 transition-colors" asChild>
+                  <Link href={`/licitaciones/${licitacion.id}/participar`}>Participar</Link>
                 </Button>
               )}
             </CardFooter>

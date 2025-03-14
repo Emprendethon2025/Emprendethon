@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
@@ -72,11 +74,12 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
         </div>
       </CardContent>
       <CardFooter className="p-6 pt-0">
-        <Link href={`/campaigns/${campaign.id}`} className="w-full" passHref>
-          <Button className="w-full bg-skyblue hover:bg-skyblue/80 transition-colors">Donar Ahora</Button>
-        </Link>
+        <Button asChild className="w-full bg-skyblue hover:bg-skyblue/80 transition-colors">
+          <Link href={`/campaigns/${campaign.id}`}>
+            Donar Ahora
+          </Link>
+        </Button>
       </CardFooter>
     </Card>
   )
 }
-
