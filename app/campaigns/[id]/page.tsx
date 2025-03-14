@@ -11,15 +11,63 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
+interface Reward {
+  id: string;
+  title: string;
+  description: string;
+  minDonation: number;
+  claimed: number;
+}
+
+interface Update {
+  id: string;
+  date: string;
+  title: string;
+  content: string;
+}
+
+interface Transaction {
+  id: string;
+  date: string;
+  amount: number;
+  type: "donation" | "expense";
+  status: "completed" | "pending" | "failed";
+  from?: string;
+  purpose?: string;
+  category?: string;
+  beneficiaries?: number;
+  to?: string;
+}
+
+interface Campaign {
+  id: string;
+  title: string;
+  organization: string;
+  description: string;
+  raised: number;
+  goal: number;
+  backers: number;
+  daysLeft: number;
+  image: string;
+  featured?: boolean;
+  verified?: boolean;
+  category: string;
+  location: string;
+  website: string;
+  rewards: Reward[];
+  updates: Update[];
+  transactions: Transaction[];
+}
+
 export default function CampaignDetailPage() {
   const params = useParams();
   const campaignId = params?.id as string;
-  const [campaign, setCampaign] = useState<any>(null);
+  const [campaign, setCampaign] = useState<Campaign | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Datos de campañas (en una implementación real, estos vendrían de una API o blockchain)
-    const campaignsData = [
+    const campaignsData: Campaign[] = [
       {
         id: "0",
         title: "Ayuda Urgente: Inundaciones en Bahía Blanca",
@@ -91,79 +139,79 @@ export default function CampaignDetailPage() {
             date: "2025-03-10",
             amount: 2000,
             from: "5GrwvaEF...utQY",
-            type: "donation" as const,
-            status: "completed" as const,
+            type: "donation",
+            status: "completed",
           },
           {
             id: "tx2",
             date: "2025-03-11",
             amount: 1500,
             from: "5FHneW46...v3VPc",
-            type: "donation" as const,
-            status: "completed" as const,
+            type: "donation",
+            status: "completed",
           },
           {
             id: "tx3",
             date: "2025-03-13",
             amount: 5000,
             from: "0x742d35...e7e6",
-            type: "donation" as const,
-            status: "completed" as const,
+            type: "donation",
+            status: "completed",
           },
           {
             id: "tx4",
             date: "2025-03-14",
             amount: 1200,
-            type: "expense" as const,
+            type: "expense",
             purpose: "Compra de kits de emergencia con alimentos y artículos básicos",
             category: "Suministros",
             beneficiaries: 50,
             to: "Proveedor Local de Suministros",
-            status: "completed" as const,
+            status: "completed",
           },
           {
             id: "tx5",
             date: "2025-03-14",
             amount: 800,
-            type: "expense" as const,
+            type: "expense",
             purpose: "Habilitación de refugio temporal (materiales y acondicionamiento)",
             category: "Infraestructura",
             beneficiaries: 80,
             to: "Centro Comunitario Municipal",
-            status: "completed" as const,
+            status: "completed",
           },
           {
             id: "tx6",
             date: "2025-03-15",
             amount: 500,
-            type: "expense" as const,
+            type: "expense",
             purpose: "Transporte de voluntarios y suministros a zonas afectadas",
             category: "Logistica",
             beneficiaries: 120,
             to: "Empresa de Transporte Local",
-            status: "completed" as const,
+            status: "completed",
           },
           {
             id: "tx7",
             date: "2025-03-16",
             amount: 1500,
-            type: "expense" as const,
+            type: "expense",
             purpose: "Medicamentos y atención médica para afectados",
             category: "Salud",
             beneficiaries: 35,
             to: "Farmacia Comunitaria",
-            status: "completed" as const,
+            status: "completed",
           },
           {
             id: "tx8",
             date: "2025-03-17",
             amount: 300,
-            type: "expense" as const,
+            type: "expense",
             purpose: "Materiales educativos para niños en refugios",
             category: "Educacion",
             beneficiaries: 22,
             to: "Librería Educativa",
-            status: "completed" as const,
+            status: "completed",
           }
         ],
       },
@@ -237,79 +285,79 @@ export default function CampaignDetailPage() {
             date: "2023-10-15",
             amount: 1000,
             from: "5GrwvaEF...utQY",
-            type: "donation" as const,
-            status: "completed" as const,
+            type: "donation",
+            status: "completed",
           },
           {
             id: "tx2",
             date: "2023-10-16",
             amount: 500,
             from: "5FHneW46...v3VPc",
-            type: "donation" as const,
-            status: "completed" as const,
+            type: "donation",
+            status: "completed",
           },
           {
             id: "tx3",
             date: "2023-10-20",
             amount: 250,
             from: "0x742d35...e7e6",
-            type: "donation" as const,
-            status: "completed" as const,
+            type: "donation",
+            status: "completed",
           },
           {
             id: "tx4",
             date: "2023-10-25",
             amount: 400,
-            type: "expense" as const,
+            type: "expense",
             purpose: "Compra de semillas nativas para reforestación",
             category: "Suministros",
             beneficiaries: 0,
             to: "Banco de Semillas Amazónicas",
-            status: "completed" as const,
+            status: "completed",
           },
           {
             id: "tx5",
             date: "2023-11-01",
             amount: 300,
-            type: "expense" as const,
+            type: "expense",
             purpose: "Equipamiento para preparación del terreno",
             category: "Infraestructura",
             beneficiaries: 0,
             to: "Ferretería Ecológica",
-            status: "completed" as const,
+            status: "completed",
           },
           {
             id: "tx6",
             date: "2023-11-05",
             amount: 250,
-            type: "expense" as const,
+            type: "expense",
             purpose: "Capacitación a comunidades locales en técnicas de reforestación",
             category: "Educacion",
             beneficiaries: 15,
             to: "Consultores Ambientales",
-            status: "completed" as const,
+            status: "completed",
           },
           {
             id: "tx7",
             date: "2023-11-10",
             amount: 180,
-            type: "expense" as const,
+            type: "expense",
             purpose: "Transporte de materiales y personal a la zona de plantación",
             category: "Logistica",
             beneficiaries: 8,
             to: "Transportes Amazónicos",
-            status: "completed" as const,
+            status: "completed",
           },
           {
             id: "tx8",
             date: "2023-11-15",
             amount: 120,
-            type: "expense" as const,
+            type: "expense",
             purpose: "Material informativo sobre conservación para comunidades",
             category: "Administrativo",
             beneficiaries: 45,
             to: "Imprenta Sostenible",
-            status: "completed" as const,
+            status: "completed",
           }
         ],
       },
@@ -321,7 +369,7 @@ export default function CampaignDetailPage() {
     setIsLoading(false);
   }, [campaignId]);
 
-  if (isLoading) {
+  if (isLoading || !campaign) {
     return <div>Cargando...</div>;
   }
 
@@ -404,7 +452,7 @@ export default function CampaignDetailPage() {
                       Recompensas por tu apoyo
                     </h3>
                     <div className="space-y-4">
-                      {campaign.rewards.map((reward) => (
+                      {campaign.rewards.map((reward: Reward) => (
                         <div
                           key={reward.id}
                           className="border border-border rounded-lg p-4 transition-colors hover:bg-accent hover:text-white group"
@@ -430,7 +478,7 @@ export default function CampaignDetailPage() {
               <TabsContent value="updates" className="space-y-4 py-4">
                 {campaign.updates && campaign.updates.length > 0 ? (
                   <div className="space-y-6">
-                    {campaign.updates.map((update) => (
+                    {campaign.updates.map((update: Update) => (
                       <div key={update.id} className="border-b border-border pb-6 last:border-0">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-sm font-medium text-muted-foreground">
@@ -465,7 +513,7 @@ export default function CampaignDetailPage() {
 
                   {campaign.transactions && campaign.transactions.length > 0 ? (
                     <div className="border rounded-lg divide-y">
-                      {campaign.transactions.map((tx) => (
+                      {campaign.transactions.map((tx: Transaction) => (
                         <div key={tx.id} className="flex justify-between p-4">
                           <div>
                             <div className="font-medium">
